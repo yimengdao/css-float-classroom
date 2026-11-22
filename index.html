@@ -256,19 +256,8 @@
       background:
         linear-gradient(135deg, rgba(209, 243, 107, .3), rgba(255, 253, 248, .88));
     }
-    .plain-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 2px 6px;
-      background: var(--pine);
-      color: white;
-      font: 8px/1.4 var(--mono);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
     .plain-speak p {
-      margin: 8px 0 0;
+      margin: 0;
       color: #405149;
       font-size: 12.5px;
       line-height: 1.7;
@@ -599,18 +588,6 @@
       font-size: 12px;
       line-height: 1.65;
     }
-    .concept-say b {
-      display: inline-block;
-      margin-right: 5px;
-      padding: 1px 5px;
-      border: 1px solid #b5c09e;
-      border-radius: 3px;
-      color: var(--pine);
-      background: rgba(209, 243, 107, .24);
-      font: 8px/1.4 var(--mono);
-      letter-spacing: .06em;
-      vertical-align: 1px;
-    }
     .concept .tags {
       display: flex;
       flex-wrap: wrap;
@@ -874,12 +851,6 @@
       color: #405149;
       font-size: 11.5px;
       line-height: 1.65;
-    }
-    .plain-inline-line b {
-      margin-right: 4px;
-      color: var(--pine);
-      font: 8.5px/1.4 var(--mono);
-      letter-spacing: .06em;
     }
     .ellipsis-single {
       width: 100%;
@@ -1423,7 +1394,6 @@
             <div class="chapter-intro">
               <p class="chapter-lead">HTML 标签先被浏览器解释成一种 <code>display</code>。改 display，只改变“怎么排队”，不改变标签本身的语义。</p>
               <aside class="plain-speak" aria-label="display 的通俗解释">
-                <span class="plain-tag">通俗版</span>
                 <p><code>display</code> 就是浏览器给标签安排的“排队方式”：块级像抽屉上下叠，行内像文字横向排队。</p>
               </aside>
             </div>
@@ -1435,21 +1405,21 @@
             <span class="concept-index">01 / BLOCK</span>
             <h3>块级元素</h3>
             <p>独占一行，默认宽度撑满父容器。<code>width</code>、<code>height</code> 和四向 margin 都有效。</p>
-            <p class="concept-say"><b>换个说法</b>像一个占满整行的抽屉，后面的盒子只能放到下一行。</p>
+            <p class="concept-say">像一个占满整行的抽屉，后面的盒子只能放到下一行。</p>
             <div class="tags"><span>div</span><span>p</span><span>h1</span><span>li</span></div>
           </article>
           <article class="concept">
             <span class="concept-index">02 / INLINE</span>
             <h3>行内元素</h3>
             <p>像文字一样从左往右排队。尺寸由内容决定，直接写 <code>width</code> / <code>height</code> 通常无效。</p>
-            <p class="concept-say"><b>换个说法</b>像句子里的几个词，跟着普通文字一起从左往右站队。</p>
+            <p class="concept-say">像句子里的几个词，跟着普通文字一起从左往右站队。</p>
             <div class="tags"><span>span</span><span>a</span><span>strong</span><span>em</span></div>
           </article>
           <article class="concept">
             <span class="concept-index">03 / INLINE-BLOCK</span>
             <h3>行内块元素</h3>
             <p>既能在同一行排队，又能统一设置宽高。常用于导航、标签和按钮。</p>
-            <p class="concept-say"><b>换个说法</b>像尺寸统一的小卡片，可以并排摆放，也能规定每张卡片的大小。</p>
+            <p class="concept-say">像尺寸统一的小卡片，可以并排摆放，也能规定每张卡片的大小。</p>
             <div class="tags"><span>img</span><span>input</span><span>button</span></div>
           </article>
         </div>
@@ -1513,7 +1483,6 @@
             <div class="chapter-intro">
               <p class="chapter-lead"><code>overflow</code> 只在父盒子有尺寸约束时才有明显作用：露出来、裁掉、始终滚动，还是按需滚动。</p>
               <aside class="plain-speak" aria-label="overflow 的通俗解释">
-                <span class="plain-tag">通俗版</span>
                 <p>把盒子想成收纳箱：东西装不下时，可以露在外面、直接剪掉，或者加一根滚动条。</p>
               </aside>
             </div>
@@ -1556,7 +1525,7 @@
             <p class="eyebrow">TEXT OVERFLOW</p>
             <h3 id="ellipsisTitle">省略号生成器</h3>
             <p>单行靠“三件套”，多行靠 <code>line-clamp</code>。拖动控件看文字如何被收住。</p>
-            <div class="plain-inline-line"><b>通俗说</b>只留下规定行数，最后补一个“…”提醒读者后面还有内容。</div>
+            <div class="plain-inline-line">只留下规定行数，最后补一个“…”提醒读者后面还有内容。</div>
             <div class="ellipsis-single" id="ellipsisSingle">Web 前端开发第十一章课堂讲解：元素类型、溢出与浮动</div>
             <div class="ellipsis-multi" id="ellipsisMulti">这是一段课程简介，用来演示多行文本在固定行数后自动截断，并在末尾补上省略号。它不是简单地把后半段文字隐藏起来。</div>
             <div class="ellipsis-controls">
@@ -1598,7 +1567,6 @@
             <div class="chapter-intro">
               <p class="chapter-lead"><code>float</code> 让元素贴向左边或右边。真正需要警惕的是：浮动子元素不再参与父容器的高度计算。</p>
               <aside class="plain-speak" aria-label="float 的通俗解释">
-                <span class="plain-tag">通俗版</span>
                 <p>像把一张卡片推到桌边；后面的文字看到它，就会自然地绕开，不再从它身上压过去。</p>
               </aside>
             </div>
@@ -1667,7 +1635,6 @@
             <div class="chapter-intro">
               <p class="chapter-lead">认识四种方法即可，不必全背。现代项目优先 <code>clearfix</code> 或 <code>display: flow-root</code>。</p>
               <aside class="plain-speak" aria-label="清除浮动的通俗解释">
-                <span class="plain-tag">通俗版</span>
                 <p>像在容器底部塞一个看不见的挡板，把漂起来的卡片重新兜住，让父容器知道自己有多高。</p>
               </aside>
             </div>
@@ -1722,7 +1689,6 @@
             <div class="chapter-intro">
               <p class="chapter-lead">封面左浮动，文字自然环绕；标题单行省略，简介两行截断；父级 clearfix 重新收住高度。</p>
               <aside class="plain-speak" aria-label="综合案例的通俗解释">
-                <span class="plain-tag">通俗版</span>
                 <p>就是做一张完整的新闻卡：图片靠边、文字绕开、长文字省略，最后把父容器稳稳兜住。</p>
               </aside>
             </div>
@@ -1784,7 +1750,6 @@
             <div class="chapter-intro">
               <p class="chapter-lead">先完成六项检查，再点开三道快问快答。能用自己的话讲清，才算真正掌握。</p>
               <aside class="plain-speak" aria-label="复习方式的通俗解释">
-                <span class="plain-tag">通俗版</span>
                 <p>检查表就是一张排错地图：先看盒子类型，再看内容有没有溢出，最后检查父容器有没有被浮动“骗”到高度为 0。</p>
               </aside>
             </div>
